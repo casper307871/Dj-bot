@@ -1,7 +1,30 @@
+Edward Admin Bot
 
+A Telegram federation + global ban admin bot.
 
-[replit.md](https://github.com/user-attachments/files/22409620/replit.md)
-[components.json](https://github.com/user-attachments/files/22409621/components.json)t[tsconfig.json](https://github.com/user-attachments/files/22409625/tsconfig.json)
-[postcss.config.js](https://github.com/user-attachments/files/22409624/postcss.config.js)
-[package.json](https://github.com/user-attachments/files/22409623/package.json)
-[package-lock.json](https://github.com/user-attachments/files/22409622/package-lock.json)
+## 🚀 Docker Usage
+
+### Build the image
+```bash
+docker build -t edward-admin .
+```
+
+### Run the container
+```bash
+docker run --rm \
+  --env-file .env \
+  -v $(pwd)/data:/data \
+  edward-admin
+```
+
+Or use **Docker Compose**:
+```bash
+docker compose up -d
+```
+
+### Environment Variables
+- `BOT_TOKEN` – Your Telegram bot token from [@BotFather](https://t.me/BotFather)
+
+### Data Persistence
+Bot state is stored in `/data/data.json`.  
+Mount `./data` on the host to persist between restarts.
